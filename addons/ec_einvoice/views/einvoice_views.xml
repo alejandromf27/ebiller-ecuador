@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data>
+
+    <record model="ir.ui.view" id="view_account_invoice_form_inh__ec_sri">
+			<field name="name">view_account_invoice_form_facturae_ec_sri</field>
+			<field name="model">account.invoice</field>
+            <field name="groups_id" eval="[(6,0, [ref('kruger_l10n_ec.group_l10n_ecuador')])]" />
+			<field name="inherit_id" ref="account.invoice_form" />
+			<field name="arch" type="xml">
+
+                <notebook position="inside">
+                    <page string="Facturación electrónica">
+                        <div class="oe_right oe_button_box">
+                            <button class="oe_inline oe_stat_button" type="object" name="action_generate_einvoice" icon="fa-play" attrs="{'invisible':['|',('sent_to_center','=',True),('state','!=','open')]}">
+                                <div name="holder_send">Send</div>
+                            </button>
+                            <button class="oe_inline oe_stat_button" type="object" name="auth_doc_sri" icon="fa-thumbs-up" attrs="{'invisible':['|',('autorizado_sri','=',True),('state','!=','open')]}">
+                                <div name="holder_send">Auth</div>
+                            </button>
+
+                        </div>
+                        <group>
+                            <field name="ambiente" readonly="1"/>
+                            <field name="clave_acceso" readonly="1"/>
+                            <field name="emission_code" readonly="1" invisible="1"/>
+                            <field name="autorizado_sri" readonly="1"/>
+                            <field name="fecha_autorizacion" readonly="1"/>
+                            <field name="estado_autorizacion" readonly="1"/>
+                            <field name="numero_autorizacion" readonly="1"/>
+                        </group>
+                    </page>
+                </notebook>
+
+                <page string="Facturación electrónica" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </page>
+
+			</field>
+		</record>
+
+
+
+  </data>
+</openerp>

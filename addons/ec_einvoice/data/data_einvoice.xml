@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+  <data noupdate="1">
+
+        <record id="sequence_edocuments_code_sequence" model="ir.sequence">
+            <field name="name">code sequence de Facturas Electronicas</field>
+            <field name="padding">8</field>
+            <field name="number_next">1</field>
+            <field name="number_increment">1</field>
+        </record>
+
+  </data>
+</openerp>
